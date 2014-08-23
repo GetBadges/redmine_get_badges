@@ -1,4 +1,4 @@
-require 'redmine_get_badges/issue_patch'
+require 'redmine_get_badges/patches/issue_patch'
 Redmine::Plugin.register :redmine_get_badges do
   settings default: {'empty' => true}, partial: 'redmine_get_badges/settings'
   name 'Redmine Get Badges plugin'
