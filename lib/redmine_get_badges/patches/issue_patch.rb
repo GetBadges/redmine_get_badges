@@ -33,7 +33,7 @@ module RedmineGetBadges
         attr_accessor :event
 
         def user
-          striped_mail = self.author.try(:mail).to_s.strip
+          striped_mail = User.current.try(:mail).to_s.strip
           Digest::MD5.hexdigest(striped_mail.downcase)
         end
 
