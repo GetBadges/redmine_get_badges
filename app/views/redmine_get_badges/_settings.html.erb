@@ -1,13 +1,13 @@
 <%= l(:get_badges_get_token_from) %> <a href="http://getbadg.es">getbadg.es</a>
 
-</br></br>
+<br><br>
 
 <%= l(:get_badges_setting_token) %>
 <input type="text" id="settings_get_badges_token"
        value="<%= settings['get_badges_token'] %>"
        name="settings[get_badges_token]" size="50"/>
 
-</br></br>
+<br><br>
 
 <%= l(:get_badges_current_token) %>:
 <%= settings['get_badges_token'].present? ? settings['get_badges_token'] : l(:get_badges_get_token_empty) %>
