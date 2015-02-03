@@ -30,7 +30,7 @@ module RedmineGetBadges
         # This will send a notification associated to the issue
         require 'net/http'
 
-        attr_accessor :event
+        attr_accessor :event, :project_name
 
         def user
           striped_mail = User.current.try(:mail).to_s.strip
@@ -60,9 +60,10 @@ module RedmineGetBadges
 
         def serialize_data(event)
           self.event = event
+          self.project_name = self.project.try(:name)
           self.serializable_hash(
-            methods: [:event, :user],
-            only: [:event, :user],
+            methods: [:event, :user, :project_name],
+            only: [:event, :user, :project_name],
           )
         end
       end
