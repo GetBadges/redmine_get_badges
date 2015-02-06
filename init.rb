@@ -4,6 +4,6 @@ Redmine::Plugin.register :redmine_get_badges do
   name 'Redmine Get Badges plugin'
   author 'Justyna Wojtczak'
   description 'A plugin for managing getbadges functionality'
-  version '0.0.3'
+  version '0.1.0'
 end
 
