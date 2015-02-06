@@ -63,7 +63,7 @@ module RedmineGetBadges
           self.project_name = self.project.try(:name)
           self.serializable_hash(
             methods: [:event, :user, :project_name],
-            only: [:event, :user, :project_name],
+            only: [:event, :user, :project_name, :id],
           )
         end
       end
