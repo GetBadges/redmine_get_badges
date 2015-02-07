@@ -32,9 +32,8 @@ module RedmineGetBadges
 
         attr_accessor :event, :project_name
 
-        def user
-          striped_mail = User.current.try(:mail).to_s.strip
-          Digest::MD5.hexdigest(striped_mail.downcase)
+        def email
+          User.current.try(:mail).to_s.strip.downcase if User.current.try(:mail).present?
         end
 
         def send_issue_create
@@ -62,8 +61,8 @@ module RedmineGetBadges
           self.event = event
           self.project_name = self.project.try(:name)
           self.serializable_hash(
-            methods: [:event, :user, :project_name],
-            only: [:event, :user, :project_name, :id],
+            methods: [:event, :email, :project_name],
+            only: [:event, :email, :project_name, :id],
           )
         end
       end
