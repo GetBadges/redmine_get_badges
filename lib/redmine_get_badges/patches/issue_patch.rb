@@ -5,6 +5,7 @@ module RedmineGetBadges
   module Patches
     module IssuePatch
       def self.included(base)
+
         base.extend ClassMethods
         base.send :include, InstanceMethods
 

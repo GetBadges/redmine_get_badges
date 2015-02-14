@@ -3,7 +3,11 @@ module GetBadges
     def self.send_data(data)
       token = Setting.plugin_redmine_get_badges['get_badges_token']
       return unless token.present?
-      uri = URI("http://getbadg.es/api/app/webhook/#{token}")
+      uri = if data['projects'].present?
+              URI("http://getbadg.es/api/redmine/project/#{token}")
+            else
+              URI("http://getbadg.es/api/app/webhook/#{token}")
+            end
       http = Net::HTTP.new(uri.host, uri.port)
       req = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' =>'application/json' })
       req.body = [data].to_json
