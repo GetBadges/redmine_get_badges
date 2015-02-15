@@ -4,7 +4,7 @@ module GetBadges
       token = Setting.plugin_redmine_get_badges['get_badges_token']
       return unless token.present?
       uri = if data['projects'].present?
-              URI("http://getbadg.es/api/redmine/project/#{token}")
+              URI("http://getbadg.es/api/redmine/projects/#{token}")
             else
               URI("http://getbadg.es/api/app/webhook/#{token}")
             end

@@ -39,7 +39,6 @@ module RedmineGetBadges
 
         def send_issue_create
           GetBadges::Api.send_data(serialize_data('redmine.issue.create'))
-          return true
         end
 
         def send_issue_update
@@ -50,12 +49,10 @@ module RedmineGetBadges
               GetBadges::Api.send_data(serialize_data('redmine.issue.reopen'))
             end
           end
-          return true
         end
 
         def send_issue_destroy
           GetBadges::Api.send_data(serialize_data('redmine.issue.delete'))
-          return true
         end
 
         def serialize_data(event)

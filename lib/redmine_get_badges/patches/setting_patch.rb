@@ -11,7 +11,7 @@ module RedmineGetBadges
         base.class_eval do
           unloadable # Send unloadable so it will not be unloaded in development
 
-          after_validation :send_projects
+          after_save :send_projects
         end
       end
 
@@ -23,8 +23,7 @@ module RedmineGetBadges
 
         def send_projects
           return unless self.name == 'plugin_redmine_get_badges'
-          GetBadges::Api.send_data(Project.prepared_projects) if self.changed?
-          return true
+          GetBadges::Api.send_data(Project.prepared_projects)
         end
       end
     end

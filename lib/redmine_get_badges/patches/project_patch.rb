@@ -36,7 +36,6 @@ module RedmineGetBadges
 
         def send_projects
           GetBadges::Api.send_data(Project.prepared_projects)
-          return true
         end
 
         def serialize_data()
