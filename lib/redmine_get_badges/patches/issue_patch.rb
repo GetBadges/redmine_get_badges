@@ -37,6 +37,10 @@ module RedmineGetBadges
           User.current.try(:mail).to_s.strip.downcase if User.current.try(:mail).present?
         end
 
+        def url
+          '/issues/' + self.id.to_s
+        end
+
         def send_issue_create
           GetBadges::Api.send_data(serialize_data('redmine.issue.create'))
         end
@@ -59,8 +63,8 @@ module RedmineGetBadges
           self.event = event
           self.project_name = self.project.try(:name)
           self.serializable_hash(
-            methods: [:event, :email, :project_name],
-            only: [:event, :email, :project_name, :project_id, :id],
+            methods: [:event, :email, :project_name, :url],
+            only: [:event, :email, :project_name, :project_id, :id, :subject, :url],
           )
         end
       end
