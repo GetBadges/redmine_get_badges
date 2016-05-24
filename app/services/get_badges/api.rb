@@ -5,9 +5,9 @@ module GetBadges
       return unless token.present?
       data[:host] = Setting.protocol + '://' + Setting.host_name
       uri = if data['projects'].present?
-              URI("http://getbadg.es/api/redmine/projects/#{token}")
+              URI("https://getbadges.io/api/redmine/projects/#{token}")
             else
-              URI("http://getbadg.es/api/app/webhook/#{token}")
+              URI("https://getbadges.io/api/app/webhook/#{token}")
             end
       http = Net::HTTP.new(uri.host, uri.port)
       req = Net::HTTP::Post.new(uri.path, initheader = { 'Content-Type' =>'application/json' })
