@@ -25,7 +25,7 @@ module RedmineGetBadges
           Project.all.each do |project|
             data['projects'] << project.serialize_data
           end
-          return data
+          data
         end
       end
 

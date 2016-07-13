@@ -1,6 +1,6 @@
 # English strings go here for Rails i18n
 en:
-  get_badges_setting_caption: Get badges
+  get_badges_setting_caption: GetBadges
   get_badges_setting_token: Token
   get_badges_get_token_from: Get token from
   get_badges_current_token: Current token
