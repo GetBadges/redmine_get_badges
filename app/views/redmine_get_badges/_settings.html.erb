@@ -1,13 +1,14 @@
 <%= l(:get_badges_get_token_from) %> <a href="https://getbadges.io">getbadges.io</a>
 
-<br><br>
-
-<%= l(:get_badges_setting_token) %>
-<input type="text" id="settings_get_badges_token"
-       value="<%= settings['get_badges_token'] %>"
-       name="settings[get_badges_token]" size="50"/>
-
-<br><br>
-
-<%= l(:get_badges_current_token) %>:
-<%= settings['get_badges_token'].present? ? settings['get_badges_token'] : l(:get_badges_get_token_empty) %>
+<div id="all_attributes">
+    <p>
+      <strong><%= l(:get_badges_current_token) %>:</strong>
+      <%= settings['get_badges_token'].present? ? settings['get_badges_token'] : l(:get_badges_get_token_empty) %>
+    </p>
+    <p>
+      <label for="settings_get_badges_token"><%= l(:get_badges_setting_token) %><span class="required"> *</span></label>
+      <input type="text" id="settings_get_badges_token" value="<%= settings['get_badges_token'] %>"
+             name="settings[get_badges_token]" size="50"/>
+    </p>
+    <p>Save your token then choose a project from a list in GetBadges</p>
+</div>
